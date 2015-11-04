@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 	<head>
 		<meta charset="utf-8">
@@ -41,8 +41,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Mais poder ao HTML com AngularJS</h1>
-					<h3></h3>
+					<h2>Web apps com AngularJS</h2>
+					<h4>Mais poder ao HTML com AngularJS</h4>
 					<p>
 						<small><a href="http://github.com/guiseek">@Gui Seek</a></small>
 					</p>
@@ -185,6 +185,170 @@
 								</li>
 							</ul>
 						</aside>
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>AngularJS</h2>
+						<p>
+							HTML aprimorado para aplicativos da web!
+						</p>
+					</section>
+
+					<section>
+						<h2>Por quê AngularJS?</h2>
+						<p>
+							HTML é ótimo para declarar documentos estáticos, mas vacila quando tentamos usá-lo para declarar visualizações dinâmicas em aplicações web.
+							AngularJS permite estender elementos HTML para a sua aplicação.
+							O resultado é expressivo, legível e rápido para se desenvolver.
+						</p>
+					</section>
+
+					<section>
+						<h2>Frameworks MV*</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Backbone.js</td>
+									<td>Ember.js</td>
+								</tr>
+								<tr>
+									<td>Knockout.js</td>
+									<td>Angular.js</td>
+								</tr>
+								<tr>
+									<td>Cappuccino</td>
+									<td>JavaScript MVC</td>
+								</tr>
+								<tr>
+									<td>Meteor</td>
+									<td>Spice.js</td>
+								</tr>
+								<tr>
+									<td>Riot.js</td>
+									<td>CanJS</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>JavaScript The Right Way</h2>
+						<h4>Criado pelo Google, Angular.js é como um polyfill para o futuro do HTML.</h4>
+						<img src="img/JStherightway-angularjs.png" alt="" />
+						<p>Não fui eu quem disse.</p>
+					</section>
+
+					<section>
+						<h2>Características do AngularJS</h2>
+						<h5>SPA (Single Page Applications)</h5>
+						<p>
+							Aplicações inteiramente contidas no browser que não precisam fazer requisições de novas páginas no servidor.
+						</p>
+					</section>
+
+					<section>
+						<h2>Características do AngularJS</h2>
+						<ul>
+							<li>
+								Separação de responsabilidades
+								<ul>
+									<li><i>Controllers</i></li>
+									<li><i>Services</i></li>
+									<li><i>Factories</i></li>
+									<li><i>Directives</i></li>
+									<li><i>Providers</i></li>
+								</ul>
+							</li>
+							<li>Estrutura MVC ou MVW<i>hatever</i></li>
+							<li>Injeção de dependências (<i>Dependency Injection</i>)</li>
+							<li>Ligação de dados (<i>Data Binding</i>)</li>
+							<li>Rotas</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Modularização com AngularJS</h2>
+						<p>
+							Criação de módulos reutilizáveis ficou fáci.
+						</p>
+						<p>
+							Por consequência disso, atualmente com uma busca no <i>NPM</i> por <i>angular</i> retornam em <i>4.323</i> resultados e no <i>bower</i> <i>6.043</i>.
+						</p>
+					</section>
+
+					<section>
+						<h2>Exemplo de app simples</h2>
+<pre><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html ng-app&gt;
+	&lt;head&gt;
+		&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;
+			&lt;label&gt;Nome:&lt;/label&gt;
+			&lt;input type=&quot;text&quot; ng-model=&quot;seuNome&quot; placeholder=&quot;Seu nome&quot;&gt;
+			&lt;hr&gt;
+			&lt;h1&gt;Olá {{seuNome}}!&lt;/h1&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Dando poder ao HTML com diretivas do AngularJS</h2>
+<pre><code class="html" data-trim>
+&lt;div ng-controller=&quot;UsuarioCtrl as ctrl&quot;&gt;
+ &lt;form ng-submit="ctrl.submit()" name="usuarioForm" novalidate&gt;
+  &lt;div&gt;
+   &lt;label&gt;Usuário&lt;label&gt;
+   &lt;input type="text" name="usuario" ng-model="ctrl.usuario" ng-minlength="5" ng-maxlength="10" required&gt;
+   &lt;div ng-show="usuarioForm.$submitted || usuarioForm.usuario.$touched"&gt;
+    &lt;div ng-show="usuarioForm.usuario.$error.required"&gt;Preencha seu nome.&lt;/div&gt;
+    &lt;div ng-show="usuarioForm.usuario.$error.minlength"&gt;Deve ter mais de 5 caracteres.&lt;/div&gt;
+    &lt;div ng-show="usuarioForm.usuario.$error.maxlength"&gt;Deve ter menos de 10 caracteres.&lt;/div&gt;
+   &lt;/div&gt;
+  &lt;div&gt;
+  &lt;div&gt;
+   &lt;button type="submit" ng-disabled="usuarioForm.$invalid"&gt;Salvar&lt;/button&gt;
+  &lt;/div&gt;
+ &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+					</section>
+
+					<section>
+						<h2>Diretivas</h2>
+						<p>
+							Como o AngularJS lida com manipulação do DOM e renderiza UI/Componentes reutilizáveis.
+						</p>
+						<p>
+							Desde trechos HTML simples até componentes complexos com comportamentos específicos definidos pelo desenvolvedor.
+						</p>
+					</section>
+
+					<section>
+						<h2>Criando uma diretiva</h2>
+						<p>Restrict: A</p>
+<pre><code class="html" data-trim>
+&lt;div componente&gt;&lt;/div&gt;
+</code></pre>
+						<p>Restrict: C</p>
+<pre><code class="html" data-trim>
+&lt;div class="componente"&gt;&lt;/div&gt;
+</code></pre>
+						<p>Restrict: E</p>
+<pre><code class="html" data-trim>
+&lt;componente&gt;&lt;/componente&gt;
+</code></pre>
+						<p>Restrict: M</p>
+<pre><code class="html" data-trim>
+&lt;!-- directive:componente --&gt;
+</code></pre>
 					</section>
 
 					<section>
