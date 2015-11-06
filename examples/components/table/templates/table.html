@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <tr>
+      <th ng-if="columns" ng-repeat="colum in columns" ng-bind="colum"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-if="content.length > 0" ng-repeat="rows in content">
+      <td ng-repeat="value in rows" ng-bind="value"></td>
+    </tr>
+    <tr ng-if="content.length == 0">
+      <td cols="{{columns.length}}">Nenhum registro</td>
+    </tr>
+  </tbody>
+</table>
